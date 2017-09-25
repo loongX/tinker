@@ -14,29 +14,26 @@
  * limitations under the License.
  */
 
-package com.tencent.tinker.anno;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Inherited;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+package com.tencent.tinker.loader;
 
 /**
- * Annotations
+ * Created by tangyinsheng on 17/3/15.
  *
- * Created by zhaoyuan on 16/3/31.
+ * This class is used to test if our AndroidNClassLoader can load classes in base.apk
+ * after its pathList is updated.
+ *
+ * <b> DO NOT touch this class in any places !! </b>
+ *
+ * <b>
+ *     If you change name of this class, you should also make such change in these places:
+ *      TinkerProguardConfigTask.groovy
+ *      TinkerMultidexConfigTask.groovy
+ *      AndroidNClassLoader.java
+ * </b>
  */
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.SOURCE)
-@Inherited
-public @interface DefaultLifeCycle {
+public final class TinkerTestAndroidNClassLoader {
 
-    String application();
-
-    String loaderClass() default "com.tencent.tinker.loader.TinkerLoader";
-
-    int flags();
-
-    boolean loadVerifyFlag() default false;
+    private TinkerTestAndroidNClassLoader() {
+        throw new UnsupportedOperationException();
+    }
 }
